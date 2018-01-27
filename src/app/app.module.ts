@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { AppComponent } from './app.component';
+import { RoutesModule } from './routes/routes.module';
+import { LayoutModule } from './layout/layout.module';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { AppComponent } from './app.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule.forRoot()
+    NgZorroAntdModule.forRoot(),
+    LayoutModule,
+    RoutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

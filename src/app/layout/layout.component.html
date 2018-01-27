@@ -1,0 +1,34 @@
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="u-logo">
+    </div>
+    <ul nz-menu [nzTheme]="'dark'" [nzMode]="isCollapsed?'vertical':'inline'">
+      <li nz-submenu>
+        <span title><i class="anticon anticon-user"></i><span class="u-nav-text">User</span></span>
+        <ul>
+          <li nz-menu-item>Tom</li>
+          <li nz-menu-item>Bill</li>
+          <li nz-menu-item>Alex</li>
+        </ul>
+      </li>
+      <li nz-submenu>
+        <span title><i class="anticon anticon-team"></i><span class="u-nav-text">Team</span></span>
+        <ul>
+          <li nz-menu-item>Team 1</li>
+          <li nz-menu-item>Team 2</li>
+        </ul>
+      </li>
+      <li nz-menu-item><span><i class="anticon anticon-file"></i><span class="u-nav-text">File</span></span></li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header class="u-header">
+      <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
+    </nz-header>
+    <nz-content class="u-content" style="margin:16px;">
+      <div class="u-content-wapper">
+      </div>
+    </nz-content>
+    <nz-footer class="u-footer">Ant Design ©2017 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>
