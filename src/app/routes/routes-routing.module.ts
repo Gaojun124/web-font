@@ -4,8 +4,12 @@ import { LayoutComponent } from '../layout/layout.component';
 
 const routes: Routes = [
   {
-      path: '',
-      component: LayoutComponent
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' }
+    ]
   }
 ];
 
