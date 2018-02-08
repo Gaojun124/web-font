@@ -9,9 +9,8 @@
           <span class="u-nav-text">User</span>
         </span>
         <ul>
-          <li nz-menu-item>Tom</li>
-          <li nz-menu-item>Bill</li>
-          <li nz-menu-item>Alex</li>
+          <li nz-menu-item nzSelected><a routerLink="/dashboard">控制面板</a></li>
+          <li nz-menu-item><a routerLink="/user">用户页面</a></li>
         </ul>
       </li>
       <li nz-submenu>
@@ -37,6 +36,7 @@
       <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
     </nz-header>
     <nz-content class="u-content" style="margin:16px;">
+      <app-reuse-tab></app-reuse-tab>
       <div class="u-content-wapper">
         <router-outlet></router-outlet>
       </div>

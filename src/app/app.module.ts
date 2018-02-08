@@ -7,7 +7,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { AppComponent } from './app.component';
 import { RoutesModule } from './routes/routes.module';
-import { LayoutModule } from './layout/layout.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import { LayoutModule } from './layout/layout.module';
     HttpClientModule,
     BrowserAnimationsModule,
     NgZorroAntdModule.forRoot(),
-    LayoutModule,
+    CoreModule,
     RoutesModule
   ],
   providers: [],
