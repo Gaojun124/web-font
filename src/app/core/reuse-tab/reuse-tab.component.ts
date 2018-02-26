@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-reuse-tab',
@@ -7,25 +9,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReuseTabComponent implements OnInit {
   tabs: Array<any>;
-  constructor() {
-    this.tabs = [
-      {
-        name: 'Tab 1',
-        content: 'Content of Tab Pane 1'
-      },
-      {
-        name: 'Tab 2',
-        content: 'Content of Tab Pane 2'
-      },
-      {
-        name: 'Tab 3',
-        content: 'Content of Tab Pane 3'
-      }
-    ];
+  selectedIndex: number;
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {
+    this.tabs = [];
   }
 
   ngOnInit() {
+    const currentUrl = this.activatedRoute.firstChild.snapshot.url[0].path;
+    this.tabs.push(
+      {
+        name: currentUrl,
+        url: '/' + currentUrl,
+      }
+    );
+    this.router.events.pipe(filter(evt => evt instanceof NavigationEnd)).subscribe(
+      (event: NavigationEnd) => {
+        if (!this.tabs.some(tab => event.url.indexOf(tab.name) > 0)) {
+          this.tabs.push(
+            {
+              name: event.url.replace('/', ''),
+              url: event.url
+            }
+          );
+          this.selectedIndex = this.tabs.length - 1;
+        } else {
+          this.selectedIndex = this.tabs.findIndex(tab => tab.url === event.url);
+        }
+      }
+    );
+  }
 
+  selectedIndexChange(event) {
+    const url = this.tabs[event].url;
+    this.router.navigateByUrl(url);
   }
 
 }

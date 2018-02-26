@@ -1,5 +1,5 @@
-<nz-tabset>
-  <nz-tab *ngFor="let tab of tabs">
+<nz-tabset [nzSelectedIndex]="selectedIndex" (nzSelectedIndexChange)="selectedIndexChange($event)">
+  <nz-tab *ngFor="let tab of tabs" nzSelected>
     <ng-template #nzTabHeading>
       {{tab.name}}
     </ng-template>
