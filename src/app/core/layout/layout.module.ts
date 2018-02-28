@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NzLayoutModule, NzMenuModule } from 'ng-zorro-antd';
 import { LayoutComponent } from './layout.component';
-import { ReuseTabModule } from '../reuse-tab/reuse-tab.module';
+import { ReuseTabModule } from './reuse-tab/reuse-tab.module';
 
 
 @NgModule({
